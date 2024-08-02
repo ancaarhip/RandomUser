@@ -9,18 +9,14 @@ import SwiftUI
 
 struct NavigationBarStyle: ViewModifier {
     let leading: AnyView
-    let title: String
+    let title: AnyView
     let trailing: AnyView
     
     func body(content: Content) -> some View {
         content
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) { leading }
-                ToolbarItem(placement: .principal) {
-                    Text(title)
-                        .fontWeight(.semibold)
-                        .foregroundColor(.primary)
-                }
+                ToolbarItem(placement: .principal) { title }
                 ToolbarItem(placement: .topBarTrailing) { trailing }
             }
             .navigationBarTitleDisplayMode(.inline)
@@ -30,7 +26,7 @@ struct NavigationBarStyle: ViewModifier {
 }
 
 extension View {
-    func navigationBar(leading: any View = EmptyView(), title: String = "", trailing: any View = EmptyView()) -> some View {
-        modifier(NavigationBarStyle(leading: AnyView(leading), title: title, trailing: AnyView(trailing)))
+    func navigationBar(leading: any View = EmptyView(), title: any View = EmptyView(), trailing: any View = EmptyView()) -> some View {
+        modifier(NavigationBarStyle(leading: AnyView(leading), title: AnyView(title), trailing: AnyView(trailing)))
     }
 }

@@ -23,18 +23,21 @@ struct FavoritesView: View {
                 .onDelete(perform: deleteItems)
             }
             .navigationBar(
-                title: "Favorites",
-                trailing: Button {
-                    deleteAlert.toggle()
-                } label: {
-                    Image(systemName: "trash")
-                }
+                title: 
+                    Text("favorites").titleStyle(),
+                trailing:
+                    Button {
+                        deleteAlert.toggle()
+                    } label: {
+                        Image(systemName: "trash")
+                    }
+                    .disabled(favourites.isEmpty)
             )
         }
         .alert(isPresented: $deleteAlert) {
-            Alert(title: Text("Confirm"),
-                message: Text("Are you sure you want to delete all favorites?"),
-                primaryButton: .destructive(Text("Delete")) {
+            Alert(title: Text("confirm"),
+                message: Text("confirm_delete_message"),
+                primaryButton: .destructive(Text("delete")) {
                    clearAll()
                 },
                 secondaryButton: .cancel())
@@ -54,7 +57,7 @@ struct FavoritesView: View {
             try modelContext.delete(model: User.self)
         } catch {
             //Handle error
-            print("Error deelting favs")
+            print("Error deleting favs")
         }
     }
 }

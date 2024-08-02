@@ -14,6 +14,8 @@
 		05675FB62C5BE55B0043F265 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05675FB52C5BE55B0043F265 /* NetworkManager.swift */; };
 		05675FBD2C5C2AAC0043F265 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05675FBC2C5C2AAC0043F265 /* Utils.swift */; };
 		05675FC02C5C8F790043F265 /* RandomUserAPIMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05675FBF2C5C8F790043F265 /* RandomUserAPIMock.swift */; };
+		05675FC52C5CA5320043F265 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 05675FC42C5CA5320043F265 /* Localizable.xcstrings */; };
+		05675FC72C5CAC2D0043F265 /* ViewTitleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05675FC62C5CAC2D0043F265 /* ViewTitleStyle.swift */; };
 		057CE6A52C5AADE20060064F /* RandomUserApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057CE6A42C5AADE20060064F /* RandomUserApp.swift */; };
 		057CE6A72C5AADE20060064F /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057CE6A62C5AADE20060064F /* FavoritesView.swift */; };
 		057CE6A92C5AADE20060064F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057CE6A82C5AADE20060064F /* User.swift */; };
@@ -54,6 +56,8 @@
 		05675FB52C5BE55B0043F265 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		05675FBC2C5C2AAC0043F265 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		05675FBF2C5C8F790043F265 /* RandomUserAPIMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomUserAPIMock.swift; sourceTree = "<group>"; };
+		05675FC42C5CA5320043F265 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		05675FC62C5CAC2D0043F265 /* ViewTitleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTitleStyle.swift; sourceTree = "<group>"; };
 		057CE6A12C5AADE20060064F /* RandomUser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RandomUser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		057CE6A42C5AADE20060064F /* RandomUserApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomUserApp.swift; sourceTree = "<group>"; };
 		057CE6A62C5AADE20060064F /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
@@ -149,6 +153,15 @@
 			path = Mocks;
 			sourceTree = "<group>";
 		};
+		05675FC12C5CA43C0043F265 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				057CE6AA2C5AADE30060064F /* Assets.xcassets */,
+				05675FC42C5CA5320043F265 /* Localizable.xcstrings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		057CE6982C5AADE20060064F = {
 			isa = PBXGroup;
 			children = (
@@ -178,7 +191,7 @@
 				057CE6E02C5AD3B50060064F /* Style */,
 				057CE6D22C5AB04B0060064F /* App */,
 				057CE6DB2C5AC29F0060064F /* Models */,
-				057CE6AA2C5AADE30060064F /* Assets.xcassets */,
+				05675FC12C5CA43C0043F265 /* Resources */,
 				057CE6AC2C5AADE30060064F /* Preview Content */,
 				057CE6D32C5AB0540060064F /* Scenes */,
 				05675FBC2C5C2AAC0043F265 /* Utils.swift */,
@@ -273,6 +286,7 @@
 			isa = PBXGroup;
 			children = (
 				057CE6E12C5AD3E00060064F /* NavigationBarStyle.swift */,
+				05675FC62C5CAC2D0043F265 /* ViewTitleStyle.swift */,
 			);
 			path = Style;
 			sourceTree = "<group>";
@@ -388,6 +402,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				057CE6AE2C5AADE30060064F /* Preview Assets.xcassets in Resources */,
+				05675FC52C5CA5320043F265 /* Localizable.xcstrings in Resources */,
 				057CE6AB2C5AADE30060064F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -422,6 +437,7 @@
 				057CE6DA2C5ABB120060064F /* UsersViewModel.swift in Sources */,
 				057CE6A72C5AADE20060064F /* FavoritesView.swift in Sources */,
 				05675FB12C5BE4210043F265 /* UserEndpoints.swift in Sources */,
+				05675FC72C5CAC2D0043F265 /* ViewTitleStyle.swift in Sources */,
 				057CE6A92C5AADE20060064F /* User.swift in Sources */,
 				057CE6E22C5AD3E00060064F /* NavigationBarStyle.swift in Sources */,
 				057CE6A52C5AADE20060064F /* RandomUserApp.swift in Sources */,

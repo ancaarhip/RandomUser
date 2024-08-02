@@ -36,7 +36,7 @@ struct UsersView: View {
                     }
                 }
                 .navigationBar(
-                    title: "Users"
+                    title: Text("users").titleStyle()
                 )
                 .padding()
             }
