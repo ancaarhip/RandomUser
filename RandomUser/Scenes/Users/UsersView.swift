@@ -22,11 +22,15 @@ struct UsersView: View {
     }
     
     var body: some View {
+        // Loading ...
         NavigationView {
             ScrollView(showsIndicators: false) {
                 LazyVStack {
-                    ForEach(viewModel.users, id: \.id) { user in
+                    ForEach(Array(viewModel.users.enumerated()), id: \.offset) { index, user in
                         userView(user)
+                            .onAppear {
+                                viewModel.loadNextPage(currentIndex: index)
+                            }
                         Divider()
                     }
                     .searchable(text: $searchText) {
@@ -53,9 +57,11 @@ extension UsersView {
             photoView(user)
             
             Text(user.name)
+            //email
             
             Spacer()
             
+            //Time
             Button {
                 if favourites.contains(user) {
                     modelContext.delete(user)

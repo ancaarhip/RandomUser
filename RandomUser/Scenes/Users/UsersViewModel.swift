@@ -57,6 +57,15 @@ final class UsersViewModel: ObservableObject {
             }
         }
     }
+    
+    func loadNextPage(currentIndex: Int) {
+        guard self.page < 3 else { return }
+        
+        if currentIndex >= self.users.count - 4 {
+            self.page += 1
+            self.getUsers()
+        }
+    }
 }
 
 enum ViewState: Equatable {
