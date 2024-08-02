@@ -15,8 +15,8 @@ struct FavoritesView: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach(favourites) { item in
-                    Text(item.name)
+                ForEach(favourites) { user in
+                    Text(user.name)
                 }
                 .onDelete(perform: deleteItems)
             }

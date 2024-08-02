@@ -11,20 +11,21 @@ import Foundation
 final class UsersViewModel: ObservableObject {
     
     @Published private(set) internal var users: [User] = []
+    @Published private(set) internal var errorMessage: String?
+    @Published internal var showAlert = false
     
-    init() {
-        getUsers()
+    private(set) internal var viewState: ViewState = .notLoaded
+    private var page: Int = 1
+    
+    private var randomUserAPI: any RandomUserAPIProtocol
+    
+    init(randomUserAPI: any RandomUserAPIProtocol = RandomUserAPI()) {
+        self.randomUserAPI = randomUserAPI
     }
     
     func getUsers() {
         Task {
-            users = [
-//                User(name: "\(Int.random(in: 1..<1000))", imageURL: "https://randomuser.me/api/portraits/thumb/women/88.jpg"),
-//                User(name: "\(Int.random(in: 1..<1000))", imageURL: "https://randomuser.me/api/portraits/thumb/women/88.jpg"),
-//                User(name: "\(Int.random(in: 1..<1000))", imageURL: "https://randomuser.me/api/portraits/thumb/women/88.jpg"),
-//                User(name: "\(Int.random(in: 1..<1000))", imageURL: ""),
-//                User(name: "\(Int.random(in: 1..<1000))", imageURL: "https://randomuser.me/api/portraits/thumb/women/88.jpg")
-            ]
+            try await self.testableLoadingData()
         }
     }
     
@@ -35,4 +36,31 @@ final class UsersViewModel: ObservableObject {
             return self.users.filter { $0.name.lowercased().contains(text.lowercased()) }
         }
     }
+    
+    func testableLoadingData() async throws {
+        self.viewState = .loading
+        
+        try await randomUserAPI(page: self.page) { [weak self] results in
+            guard let self else { return }
+            switch results {
+            case .success(let users):
+                DispatchQueue.main.async {
+                    self.showAlert = false
+                    self.viewState = .loaded
+                    self.users.append(contentsOf: users)
+                }
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    self.errorMessage = error.localizedDescription
+                    self.showAlert = true
+                }
+            }
+        }
+    }
+}
+
+enum ViewState: Equatable {
+    case notLoaded
+    case loading
+    case loaded
 }

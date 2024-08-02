@@ -10,11 +10,17 @@ import SwiftData
 
 @Model
 final class User {
+    var id: String
     var name: String
-    var imageURL: String
+    var email: String
+    var time: String
+    var photoURL: URL?
     
-    init(name: String, imageURL: String) {
+    init(id: String, name: String, email: String, time: String, photoURL: URL? = nil) {
+        self.id = id
         self.name = name
-        self.imageURL = imageURL
+        self.email = email
+        self.time = time
+        self.photoURL = photoURL
     }
 }
