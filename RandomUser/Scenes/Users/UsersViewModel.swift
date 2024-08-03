@@ -14,7 +14,7 @@ final class UsersViewModel: ObservableObject {
     @Published private(set) internal var errorMessage: String?
     @Published internal var showAlert = false
     
-    private(set) internal var viewState: ViewState = .notLoaded
+    private(set) internal var viewState: ViewState = .loading
     private var page: Int = 1
     
     private var randomUserAPI: any RandomUserAPIProtocol
@@ -59,12 +59,12 @@ final class UsersViewModel: ObservableObject {
     }
     
     func loadNextPage(currentIndex: Int) {
-        guard self.page < 3 else { return }
+        guard self.page < 3,
+              currentIndex == self.users.count - 4,
+              self.users.count == 20 * self.page else { return }
         
-        if currentIndex >= self.users.count - 4 {
-            self.page += 1
-            self.getUsers()
-        }
+        self.page += 1
+        self.getUsers()
     }
 }
 

@@ -1,5 +1,5 @@
 //
-//  Utils.swift
+//  StringUtils.swift
 //  RandomUser
 //
 //  Created by Anca Arhip on 01.08.2024.

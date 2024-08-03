@@ -29,7 +29,9 @@ struct UsersView: View {
                     .progressViewStyle(.circular)
                     .tint(.accentColor)
             } else {
-                usersList()
+                GeometryReader { _ in
+                    usersList()
+                }
             }
         }
         .navigationBar(
@@ -56,10 +58,13 @@ extension UsersView {
             LazyVStack {
                 ForEach(Array(viewModel.users.enumerated()), id: \.offset) { index, user in
                     userView(user)
-                        .onAppear {
-                            viewModel.loadNextPage(currentIndex: index)
-                        }
+                        
                     Divider()
+                        .onVisibilityChange { isVisible in
+                            if isVisible {
+                                viewModel.loadNextPage(currentIndex: index)
+                            }
+                        }
                 }
                 .searchable(text: $searchText) {
                     ForEach(viewModel.searchedUsers(text: self.searchText), id: \.id) { user in
@@ -67,7 +72,6 @@ extension UsersView {
                     }
                 }
             }
-            
             .padding()
         }
     }
@@ -90,6 +94,12 @@ extension UsersView {
                 .frame(width: 50, height: 50)
             if let photoURL = user.photoURL {
                 KFImage(photoURL)
+                    .placeholder{
+                        ProgressView()
+                            .controlSize(.large)
+                            .progressViewStyle(.circular)
+                            .tint(.accentColor)
+                    }
             }
         }
         .background(Color.appColor)

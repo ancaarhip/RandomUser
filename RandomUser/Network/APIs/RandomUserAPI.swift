@@ -14,12 +14,13 @@ protocol RandomUserAPIProtocol {
 }
 
 final class RandomUserAPI: RandomUserAPIProtocol {
+    let networkManager = NetworkManager.shared
     
     func callAsFunction(page: Int, completion: (UsersListResults)) async throws {
         let urlString = UserEndpoints.list(page: page).url
         
         do {
-            let users = try await NetworkManager.shared.makeRequest(type: UsersListDTO.self, urlString: urlString)
+            let users = try await networkManager.makeRequest(type: UsersListDTO.self, urlString: urlString)
             completion(.success(users()))
         } catch let error as NetworkError {
             completion(.failure(error))
