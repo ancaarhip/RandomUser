@@ -15,25 +15,23 @@ struct FavoritesView: View {
     @State private var deleteAlert = false
     
     var body: some View {
-        NavigationView {
-            List {
-                ForEach(favourites) { user in
-                    Text(user.name)
-                }
-                .onDelete(perform: deleteItems)
+        List {
+            ForEach(favourites) { user in
+                Text(user.name)
             }
-            .navigationBar(
-                title: 
-                    Text("favorites").titleStyle(),
-                trailing:
-                    Button {
-                        deleteAlert.toggle()
-                    } label: {
-                        Image(systemName: "trash")
-                    }
-                    .disabled(favourites.isEmpty)
-            )
+            .onDelete(perform: deleteItems)
         }
+        .navigationBar(
+            title:
+                Text("favorites").titleStyle(),
+            trailing:
+                Button {
+                    deleteAlert.toggle()
+                } label: {
+                    Image(systemName: "trash")
+                }
+                .disabled(favourites.isEmpty)
+        )
         .alert(isPresented: $deleteAlert) {
             Alert(title: Text("confirm"),
                 message: Text("confirm_delete_message"),

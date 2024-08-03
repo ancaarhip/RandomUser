@@ -8,6 +8,7 @@
 import Foundation
 
 enum NetworkError: Error {
+    case noInternet
     case invalidURL
     case invalidResponse
     case requestFailed
@@ -15,6 +16,8 @@ enum NetworkError: Error {
     
     var localizedDescription: String {
         switch self {
+        case .noInternet:
+            return NSLocalizedString("no-internet", comment: "")
         case .invalidURL:
             return NSLocalizedString("invalid-url", comment: "")
         case .invalidResponse:

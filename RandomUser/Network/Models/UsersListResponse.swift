@@ -18,11 +18,11 @@ struct UsersListDTO: Codable {
 struct UserDTO: Codable, Equatable {
     let name: NameDTO?
     let email: String?
-    let timezone: TimezoneDTO?
+    let location: LocationDTO?
     let photo: ImageDTO?
     
     private enum CodingKeys: String, CodingKey {
-        case name, email, timezone
+        case name, email, location
         case photo = "picture"
     }
     
@@ -31,21 +31,27 @@ struct UserDTO: Codable, Equatable {
             id: UUID().uuidString,
             name: (name?.first ?? "") + " " + (name?.last ?? ""),
             email: email ?? "",
-            time: timezone?.offset?.timeWithGMTOffset() ?? "",
+            time: location?.timezone?.offset?.timeWithGMTOffset() ?? "",
             photoURL: URL(string: photo?.thumbnail ?? "")
         )
     }
+    
+    struct NameDTO: Codable, Equatable {
+        let first: String?
+        let last: String?
+    }
+    
+    struct LocationDTO: Codable, Equatable {
+        let timezone: TimezoneDTO?
+        
+        struct TimezoneDTO: Codable, Equatable {
+            let offset: String?
+        }
+    }
+
+    struct ImageDTO: Codable, Equatable {
+        let thumbnail: String?
+    }
+
 }
 
-struct NameDTO: Codable, Equatable {
-    let first: String?
-    let last: String?
-}
-
-struct TimezoneDTO: Codable, Equatable {
-    let offset: String?
-}
-
-struct ImageDTO: Codable, Equatable {
-    let thumbnail: String?
-}

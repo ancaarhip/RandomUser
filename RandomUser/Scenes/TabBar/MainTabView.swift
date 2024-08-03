@@ -9,15 +9,21 @@ import SwiftUI
 
 struct MainTabView: View {
     var body: some View {
+        
         TabView {
-            UsersView()
-                .tabItem {
-                    Label("Users", systemImage: "person")
-                }
-            FavoritesView()
-                .tabItem {
-                    Label("Favorites", systemImage: "star")
-                }
+            NavigationView {
+                UsersView()
+            }
+            .tabItem {
+                Label("users", systemImage: "person")
+            }
+            NavigationView {
+                FavoritesView()
+            }
+            .tabItem {
+                Label("favorites", systemImage: "star")
+            }
+            
         }
         .preferredColorScheme(.light)
     }

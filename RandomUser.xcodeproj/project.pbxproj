@@ -16,6 +16,7 @@
 		05675FC02C5C8F790043F265 /* RandomUserAPIMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05675FBF2C5C8F790043F265 /* RandomUserAPIMock.swift */; };
 		05675FC52C5CA5320043F265 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 05675FC42C5CA5320043F265 /* Localizable.xcstrings */; };
 		05675FC72C5CAC2D0043F265 /* ViewTitleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05675FC62C5CAC2D0043F265 /* ViewTitleStyle.swift */; };
+		0574EAF52C5E287500DD915B /* ColorUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0574EAF42C5E287500DD915B /* ColorUtils.swift */; };
 		057CE6A52C5AADE20060064F /* RandomUserApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057CE6A42C5AADE20060064F /* RandomUserApp.swift */; };
 		057CE6A72C5AADE20060064F /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057CE6A62C5AADE20060064F /* FavoritesView.swift */; };
 		057CE6A92C5AADE20060064F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057CE6A82C5AADE20060064F /* User.swift */; };
@@ -58,6 +59,7 @@
 		05675FBF2C5C8F790043F265 /* RandomUserAPIMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomUserAPIMock.swift; sourceTree = "<group>"; };
 		05675FC42C5CA5320043F265 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		05675FC62C5CAC2D0043F265 /* ViewTitleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTitleStyle.swift; sourceTree = "<group>"; };
+		0574EAF42C5E287500DD915B /* ColorUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorUtils.swift; sourceTree = "<group>"; };
 		057CE6A12C5AADE20060064F /* RandomUser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RandomUser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		057CE6A42C5AADE20060064F /* RandomUserApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomUserApp.swift; sourceTree = "<group>"; };
 		057CE6A62C5AADE20060064F /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
@@ -287,6 +289,7 @@
 			children = (
 				057CE6E12C5AD3E00060064F /* NavigationBarStyle.swift */,
 				05675FC62C5CAC2D0043F265 /* ViewTitleStyle.swift */,
+				0574EAF42C5E287500DD915B /* ColorUtils.swift */,
 			);
 			path = Style;
 			sourceTree = "<group>";
@@ -439,6 +442,7 @@
 				05675FB12C5BE4210043F265 /* UserEndpoints.swift in Sources */,
 				05675FC72C5CAC2D0043F265 /* ViewTitleStyle.swift in Sources */,
 				057CE6A92C5AADE20060064F /* User.swift in Sources */,
+				0574EAF52C5E287500DD915B /* ColorUtils.swift in Sources */,
 				057CE6E22C5AD3E00060064F /* NavigationBarStyle.swift in Sources */,
 				057CE6A52C5AADE20060064F /* RandomUserApp.swift in Sources */,
 				057CE6D12C5AAFA20060064F /* MainTabView.swift in Sources */,
