@@ -14,7 +14,8 @@ final class UsersViewModel: ObservableObject {
     @Published private(set) internal var errorMessage: String?
     @Published internal var showAlert = false
     
-    private(set) internal var viewState: ViewState = .loading
+    @Published private(set) internal var viewState: ViewState = .loading
+    
     private var page: Int = 1
     
     private var randomUserAPI: any RandomUserAPIProtocol

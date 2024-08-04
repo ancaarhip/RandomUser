@@ -22,16 +22,14 @@ struct UsersView: View {
     }
     
     var body: some View {
-        Group {
+        ZStack {
+            usersList()
+            
             if viewModel.viewState == .loading {
                 ProgressView()
                     .controlSize(.large)
                     .progressViewStyle(.circular)
                     .tint(.accentColor)
-            } else {
-                GeometryReader { _ in
-                    usersList()
-                }
             }
         }
         .navigationBar(
